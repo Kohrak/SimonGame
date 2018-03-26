@@ -7,6 +7,7 @@ var scoreDisplay = document.querySelector("#score")
 var startButton = document.querySelector("button")
 var running = false;
 var score = 0
+var strict = false;
 function newMove(num){
   return Math.floor((Math.random() * num));
 }
@@ -50,9 +51,14 @@ function playerMove(num){
   playerSequence.push(num);
   var ind = playerSequence.length - 1
   if (playerSequence[ind] != sequence[ind]){
-    msg.textContent = "wrong, watch and start over";
-    playerSequence = [];
-    execSeq(sequence);
+    if(strict){
+      alert("you will have to start from the start");
+      restart();
+    } else {
+      msg.textContent = "wrong, watch and start over";
+      playerSequence = [];
+      execSeq(sequence);
+    }
   } else {
     if (ind == sequence.length - 1){
       msg.textContent = "correct!"
