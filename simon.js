@@ -3,7 +3,9 @@ var playerSequence = [];
 var squares = document.querySelectorAll(".square");
 var msg = document.querySelector("#msg");
 var statusmsg = document.querySelector("#status")
+var scoreDisplay = document.querySelector("#score")
 var running = false;
+var score = 0
 function newMove(num){
   return Math.floor((Math.random() * num));
 }
@@ -39,6 +41,10 @@ function turn(){
   execSeq(sequence);
 }
 
+function displayScore(){
+  scoreDisplay.textContent = score;
+}
+
 function playerMove(num){
   playerSequence.push(num);
   var ind = playerSequence.length - 1
@@ -51,6 +57,8 @@ function playerMove(num){
       msg.textContent = "correct!"
       playerSequence = [];
       turn();
+      score ++
+      displayScore();
     }
   }
 }
