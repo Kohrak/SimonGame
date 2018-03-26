@@ -9,12 +9,20 @@ var strictButton = document.querySelector("#strictb")
 var running = false;
 var score = 0
 var strict = false;
+
+var sounds = [
+  new Howl({src: ['sounds/dotted-spiral.mp3']}),
+  new Howl({src: ['sounds/flash-1.mp3']}),
+  new Howl({src: ['sounds/flash-3.mp3']}),
+  new Howl({src: ['sounds/flash-3.mp3']})
+]
 function newMove(num){
   return Math.floor((Math.random() * num));
 }
 
-function displayMove(square){
+function displayMove(square, sound){
   square.classList.toggle("selected");
+  sound.play();
   setTimeout(function(){
     square.classList.toggle("selected");
   }, 2000);
@@ -25,7 +33,7 @@ function execSeq(arr){
   var i = 0;
   var timer = setInterval(function(){
     if (i < arr.length){
-      displayMove(squares[sequence[i]]);
+      displayMove(squares[sequence[i]], sounds[sequence[i]]);
       i++
     } else {
       console.log("stop");
@@ -84,6 +92,7 @@ function restart(){
 squares.forEach(function(square){
   square.addEventListener("click", function(){
     if (!running && sequence.length > 0){
+      sounds[this.id].play();
       playerMove(this.id);
     }
   })
