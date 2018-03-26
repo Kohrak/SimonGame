@@ -1,0 +1,26 @@
+.square {
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.square.red{
+  background-color: red;
+}
+
+.square.green{
+  background-color: green;
+}
+
+.square.blue{
+  background-color: blue;
+}
+
+.square.yellow{
+  background-color: yellow;
+}
+
+.selected {
+  filter: brightness(200%);
+}
