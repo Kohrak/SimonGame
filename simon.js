@@ -4,6 +4,7 @@ var squares = document.querySelectorAll(".square");
 var msg = document.querySelector("#msg");
 var statusmsg = document.querySelector("#status")
 var scoreDisplay = document.querySelector("#score")
+var startButton = document.querySelector("button")
 var running = false;
 var score = 0
 function newMove(num){
@@ -63,10 +64,22 @@ function playerMove(num){
   }
 }
 
+function restart(){
+  sequence = [];
+  playerSequence = [];
+  score = 0;
+  displayScore();
+  msg.textContent = "Let's go";
+  statusmsg.textContent = "";
+  turn();
+}
+
 squares.forEach(function(square){
   square.addEventListener("click", function(){
     if (!running && sequence.length > 0){
       playerMove(this.id);
     }
   })
-})
+});
+
+startButton.addEventListener("click", restart);
