@@ -12,9 +12,9 @@ var strict = false;
 
 var sounds = [
   new Howl({src: ['sounds/dotted-spiral.mp3']}),
-  new Howl({src: ['sounds/flash-1.mp3']}),
-  new Howl({src: ['sounds/flash-3.mp3']}),
-  new Howl({src: ['sounds/flash-3.mp3']})
+  new Howl({src: ['sounds/suspension.mp3']}),
+  new Howl({src: ['sounds/moon.mp3']}),
+  new Howl({src: ['sounds/zig-zag.mp3']})
 ]
 function newMove(num){
   return Math.floor((Math.random() * num));
@@ -25,7 +25,7 @@ function displayMove(square, sound){
   sound.play();
   setTimeout(function(){
     square.classList.toggle("selected");
-  }, 2000);
+  }, 1500);
 }
 
 function execSeq(arr){
@@ -41,7 +41,7 @@ function execSeq(arr){
       running = false;
       statusmsg.textContent = "Play!";
     }
-  }, 3000)
+  }, 2000)
 }
 
 function turn(){
