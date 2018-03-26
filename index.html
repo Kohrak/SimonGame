@@ -9,15 +9,35 @@
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
   </head>
   <body>
-    <h1 id="msg">Click the button to start!</h1>
-    <h2 id="status"></h2>
-    <button id="startb">Start/restart</button>
-    <button id="strictb">Strict Mode</button>
-    <p>Score: <span id="score">0</span></p>
-    <div class="square red" id="0"></div>
-    <div class="square green" id="1"></div>
-    <div class="square blue" id="2"></div>
-    <div class="square yellow" id="3"></div>
+
+    <div class="container">
+        <h1 class="title">SimonGame</h1>
+      <div class="ui grid center aligned">
+        <div class="segment" id="panel">
+          <h1 id="msg">Click the button to start!</h1>
+          <h2 id="status"></h2>
+          <p>Score: <span id="score">0</span></p>
+        </div>
+        <div class="row centered">
+          <div class="column">
+            <div class="square red" id="0"></div>
+          </div>
+          <div class="column">
+            <div class="square green" id="1"></div>
+          </div>
+          <div class="column">
+            <div class="square blue" id="2"></div>
+          </div>
+          <div class="column">
+            <div class="square yellow" id="3"></div>
+          </div>
+        </div>
+        <div class="row centered">
+          <button id="startb">Start/restart</button>
+          <button id="strictb">Strict Mode</button>
+        </div>
+      </div>
+    </div>
 
     <script src="simon.js"></script>
   </body>

@@ -4,7 +4,9 @@
   border: 2px solid black;
   margin: 20px;
 }
-
+.title{
+  text-align: center;
+}
 .square:hover{
   filter: brightness(300%);
 }
@@ -31,4 +33,10 @@
 
 .selected {
   filter: brightness(300%);
+}
+
+#panel{
+  text-align: center;
+  height: 200px
+  border: 2px solid black;
 }
