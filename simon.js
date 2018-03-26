@@ -1,5 +1,5 @@
-var sequence = [0, 1]
-var playerSequence = []
+var sequence = [];
+var playerSequence = [];
 var squares = document.querySelectorAll(".square");
 
 function newMove(num){
@@ -30,7 +30,6 @@ function turn(){
   //generate new move
   sequence.push(newMove(4));
   //display moves
-  console.log(sequence);
   execSeq(sequence);
 }
 
@@ -49,3 +48,9 @@ function playerMove(num){
     }
   }
 }
+
+squares.forEach(function(square){
+  square.addEventListener("click", function(){
+    playerMove(this.id);
+  })
+})
