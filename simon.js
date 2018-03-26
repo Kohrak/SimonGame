@@ -2,9 +2,10 @@ var sequence = [];
 var playerSequence = [];
 var squares = document.querySelectorAll(".square");
 var msg = document.querySelector("#msg");
-var statusmsg = document.querySelector("#status")
-var scoreDisplay = document.querySelector("#score")
-var startButton = document.querySelector("button")
+var statusmsg = document.querySelector("#status");
+var scoreDisplay = document.querySelector("#score");
+var startButton = document.querySelector("#startb");
+var strictButton = document.querySelector("#strictb")
 var running = false;
 var score = 0
 var strict = false;
@@ -89,3 +90,8 @@ squares.forEach(function(square){
 });
 
 startButton.addEventListener("click", restart);
+
+strictButton.addEventListener("click", function(){
+  strict = strict == true ? false : true;
+  restart();
+})
