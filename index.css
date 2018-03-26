@@ -6,7 +6,7 @@
 }
 
 .square.red{
-  background-color: red;
+  background-color: #cf0000;
 }
 
 .square.green{
@@ -14,13 +14,13 @@
 }
 
 .square.blue{
-  background-color: blue;
+  background-color: #040462;
 }
 
 .square.yellow{
-  background-color: yellow;
+  background-color: #b3b307;
 }
 
 .selected {
-  filter: brightness(200%);
+  filter: brightness(300%);
 }
