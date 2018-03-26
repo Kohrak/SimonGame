@@ -5,6 +5,14 @@
   margin: 20px;
 }
 
+.square:hover{
+  filter: brightness(300%);
+}
+
+.square:active{
+  filter: brightness(100%);
+}
+
 .square.red{
   background-color: #cf0000;
 }
