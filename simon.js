@@ -9,7 +9,7 @@ var strictButton = document.querySelector("#strictb")
 var running = false;
 var score = 0
 var strict = false;
-var limit = 2;
+var limit = 20;
 var sounds = [
   new Howl({src: ['sounds/ufo.mp3']}),
   new Howl({src: ['sounds/suspension.mp3']}),
