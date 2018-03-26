@@ -1,7 +1,9 @@
 var sequence = [];
 var playerSequence = [];
 var squares = document.querySelectorAll(".square");
-
+var msg = document.querySelector("#msg");
+var statusmsg = document.querySelector("#status")
+var running = false;
 function newMove(num){
   return Math.floor((Math.random() * num));
 }
@@ -14,6 +16,7 @@ function displayMove(square){
 }
 
 function execSeq(arr){
+  statusmsg.textContent = "Watch!";
   var i = 0;
   var timer = setInterval(function(){
     if (i < arr.length){
@@ -22,6 +25,8 @@ function execSeq(arr){
     } else {
       console.log("stop");
       clearInterval(timer);
+      running = false;
+      statusmsg.textContent = "Play!";
     }
   }, 3000)
 }
@@ -30,6 +35,7 @@ function turn(){
   //generate new move
   sequence.push(newMove(4));
   //display moves
+  running = true;
   execSeq(sequence);
 }
 
@@ -37,12 +43,12 @@ function playerMove(num){
   playerSequence.push(num);
   var ind = playerSequence.length - 1
   if (playerSequence[ind] != sequence[ind]){
-    alert("wrong, watch and start over")
+    msg.textContent = "wrong, watch and start over";
     playerSequence = [];
     execSeq(sequence);
   } else {
     if (ind == sequence.length - 1){
-      alert("correct!");
+      msg.textContent = "correct!"
       playerSequence = [];
       turn();
     }
@@ -51,6 +57,8 @@ function playerMove(num){
 
 squares.forEach(function(square){
   square.addEventListener("click", function(){
-    playerMove(this.id);
+    if (!running && sequence.length > 0){
+      playerMove(this.id);
+    }
   })
 })
